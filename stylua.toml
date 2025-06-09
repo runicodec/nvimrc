@@ -1,0 +1,11 @@
+# styling for this config
+# any options that are equal to stylua's defaults are included but commented out.
+
+#column_width = 120
+#line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 2
+quote_style = "ForceDouble"
+#call_parentheses = "Always"
+#collapse_simple_statement = "Never"
+
