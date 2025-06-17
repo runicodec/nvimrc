@@ -17,6 +17,8 @@ return {
       "html",
       "typst",
       "yaml",
+      "hcl",
+      "terraform",
     },
 
     highlight = {
