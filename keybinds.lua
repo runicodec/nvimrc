@@ -3,6 +3,8 @@ vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 
 -- Alternative to escape (for hhkb)
 vim.keymap.set("i", "<C-;>", "<Esc>")
+vim.keymap.set("n", "<C-;>", "<Esc>")
+vim.keymap.set("v", "<C-;>", "<Esc>")
 
 -- Reload neovim config
 vim.keymap.set("n", "<leader>sr", function()
