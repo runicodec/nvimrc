@@ -1,14 +1,13 @@
 -- jump between project directories
-
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 local conf = require("telescope.config").values
 
-local home = vim.loop.os_homedir()
-
 local M = {}
+
+local home = vim.loop.os_homedir()
 
 local function make_telescope_entry(raw)
   local default_entry_prefix = "Projects"
@@ -100,24 +99,6 @@ M.ldr_cd = function(opts)
       prefix = "Neovim",
     })
   )
-  table.insert(
-    all_entries,
-    make_telescope_entry({
-      value = config_dir .. "/options.lua",
-      display = "Options",
-      prefix = "Neovim",
-      file = true,
-    })
-  )
-  table.insert(
-    all_entries,
-    make_telescope_entry({
-      value = config_dir .. "/keybinds.lua",
-      display = "Keybinds",
-      prefix = "Neovim",
-      file = true,
-    })
-  )
 
   -- tracked project directories
   local tracked_dirs = {
@@ -169,7 +150,7 @@ M.ldr_cd = function(opts)
           vim.cmd("cd " .. vim.fn.fnameescape(entry.directory))
 
           -- either open the selected file in enter netrw
-          vim.cmd(entry.file and "edit " .. vim.fn.fnameescape(entry.value) or "Neotree position=current")
+          vim.cmd(entry.file and "edit " .. vim.fn.fnameescape(entry.value) or "Ex")
         end)
         return true
       end,
