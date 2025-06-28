@@ -91,12 +91,22 @@ M.ldr_cd = function(opts)
 
   -- manual entries
   local config_dir = vim.fn.stdpath("config") .. "/lua/codec"
+
   table.insert(
     all_entries,
     make_telescope_entry({
       value = config_dir,
       display = "Config",
       prefix = "Neovim",
+    })
+  )
+
+  table.insert(
+    all_entries,
+    make_telescope_entry({
+      value = home .. "/.bashrc.d",
+      display = "RC Files",
+      prefix = "Bashrc",
     })
   )
 
@@ -107,6 +117,7 @@ M.ldr_cd = function(opts)
     home .. "/Uni", -- uni
     home .. "/Work", -- work
     home .. "/Documents", -- general documents folder
+    home .. "/riscv", -- riscv project
   }
 
   for _, dir in ipairs(tracked_dirs) do
