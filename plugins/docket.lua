@@ -1,8 +1,8 @@
-if vim.fn.isdirectory(vim.fn.expand("~/Projects/docket-nvim")) == 1 then
+if vim.fn.isdirectory(vim.fn.expand("~/Projects/docket.nvim")) == 1 then
   return {
     name = "docket.nvim",
     enabled = true,
-    dir = vim.fn.expand("~/Projects/docket-nvim"),
+    dir = vim.fn.expand("~/Projects/docket.nvim"),
     dev = true,
     keys = {
       {
