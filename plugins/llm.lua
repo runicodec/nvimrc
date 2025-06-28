@@ -11,11 +11,15 @@ return {
   opts = {
     providers = {
       openai = {
-        model = "gpt-4o"
+        model = "gpt-4o",
       },
 
       claude = {
-        model = "claude-3-5-sonnet-20241022"
+        model = "claude-sonnet-4-20250514",
+      },
+
+      gemini = {
+        model = "gemini-2.5-pro",
       },
     },
 
