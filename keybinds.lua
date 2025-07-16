@@ -1,10 +1,10 @@
 -- Netrw
 vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 
--- Alternative to escape (for hhkb)
-vim.keymap.set("i", "<C-;>", "<Esc>")
-vim.keymap.set("n", "<C-;>", "<Esc>")
-vim.keymap.set("v", "<C-;>", "<Esc>")
+-- Alternative to save / write
+vim.keymap.set("i", "<C-;>", "<cmd>w<cr>")
+vim.keymap.set("n", "<C-;>", "<cmd>w<cr>")
+vim.keymap.set("v", "<C-;>", "<cmd>w<cr>")
 
 -- Reload neovim config
 vim.keymap.set("n", "<leader>sr", function()
