@@ -3,7 +3,7 @@
 return {
   "neovim/nvim-lspconfig",
 
-  enabled = true,
+  enabled = false,
 
   dependencies = {
     "williamboman/mason.nvim",
@@ -92,6 +92,8 @@ return {
         --"gopls",
         --"pylsp",
         "pyright",
+        --"java_language_server",
+        "jdtls",
       },
       automatic_enable = nil,
     })
