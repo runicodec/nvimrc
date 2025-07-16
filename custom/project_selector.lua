@@ -110,6 +110,26 @@ M.ldr_cd = function(opts)
     })
   )
 
+  local last_watched_file = nil
+
+  if vim.fn.has("macunix") == 1 then
+    last_watched_file = home .. "/Movies/last-watched" 
+  elseif vim.fn.has("linux") == 1 then
+    last_watched_file = home .. "/Videos/last-watched"
+  end
+
+  if last_watched_file ~= nil then
+    table.insert(
+      all_entries,
+      make_telescope_entry({
+        value = last_watched_file,
+        display = "Last Watched",
+        prefix = "Videos",
+        file = true,
+      })
+    )
+  end
+
   -- tracked project directories
   local tracked_dirs = {
     home .. "/Projects", -- projects
@@ -121,7 +141,7 @@ M.ldr_cd = function(opts)
   }
 
   for _, dir in ipairs(tracked_dirs) do
-    if vim.fn.isdirectory(dir) == 1 then
+    if vim.fn.isdirectory(dir) ~= 0 then
       for _, project_entry in ipairs(list_subdirs_with_prefix(dir)) do
         table.insert(all_entries, project_entry)
       end
