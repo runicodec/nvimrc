@@ -5,6 +5,8 @@ vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 vim.keymap.set("i", "<C-;>", "<cmd>w<cr>")
 vim.keymap.set("n", "<C-;>", "<cmd>w<cr>")
 vim.keymap.set("v", "<C-;>", "<cmd>w<cr>")
+-- exit terminal mode
+vim.keymap.set("t", "<C-;>", "<C-\\><C-n><cr>")
 
 -- Reload neovim config
 vim.keymap.set("n", "<leader>sr", function()
