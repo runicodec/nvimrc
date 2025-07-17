@@ -91,6 +91,19 @@ M.ldr_cd = function(opts)
 
   -- manual entries
   local config_dir = vim.fn.stdpath("config") .. "/lua/codec"
+  local rc_files_dir = nil
+  local last_watched_file = nil
+
+  -- TODO: set RC directory based on user's shell
+  if vim.fn.has("macunix") == 1 then
+    last_watched_file = home .. "/Movies/last-watched" 
+    -- if on macOS, assume using zsh
+    rc_files_dir = home .. "/.zsh.d"
+  elseif vim.fn.has("linux") == 1 then
+    last_watched_file = home .. "/Videos/last-watched"
+    -- if on linux, assume using bash
+    rc_files_dir = home .. "/.bashrc.d"
+  end
 
   table.insert(
     all_entries,
@@ -101,22 +114,17 @@ M.ldr_cd = function(opts)
     })
   )
 
-  table.insert(
-    all_entries,
-    make_telescope_entry({
-      value = home .. "/.bashrc.d",
-      display = "RC Files",
-      prefix = "Bashrc",
-    })
-  )
-
-  local last_watched_file = nil
-
-  if vim.fn.has("macunix") == 1 then
-    last_watched_file = home .. "/Movies/last-watched" 
-  elseif vim.fn.has("linux") == 1 then
-    last_watched_file = home .. "/Videos/last-watched"
+  if rc_files_dir ~= nil then
+    table.insert(
+      all_entries,
+      make_telescope_entry({
+        value = rc_files_dir,
+        display = "RC Files",
+        prefix = "Shell",
+      })
+    )
   end
+
 
   if last_watched_file ~= nil then
     table.insert(
