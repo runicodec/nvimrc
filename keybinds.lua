@@ -8,11 +8,6 @@ vim.keymap.set("v", "<C-;>", "<cmd>w<cr>")
 -- exit terminal mode
 vim.keymap.set("t", "<C-;>", "<C-\\><C-n><cr>")
 
--- Reload neovim config
-vim.keymap.set("n", "<leader>sr", function()
-  vim.cmd.source({ args = { vim.env.MYVIMRC }, mods = { silent = true } })
-end)
-
 -- Terminal
 -- NOTE: replaced with glacier.nvim
 -- https://github.com/runicodec/glacier.nvim
@@ -31,6 +26,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- Move selected line up or down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
 -- Working directory management
 vim.keymap.set("n", "<leader>cc", "<cmd>cd %:p:h<cr>") -- set current file directory as working directory
