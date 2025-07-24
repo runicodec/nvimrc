@@ -2,7 +2,7 @@ return {
   -- taken / adapted from
   -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
   "stevearc/conform.nvim",
-  enabled = false,
+  enabled = true,
   event = { "BufWritePre" },
   cmd = { "ConfirmInfo" },
   keys = {
@@ -17,9 +17,10 @@ return {
   },
   opts = {
     formatters_by_ft = {
-      lua = { "stylua" },
-      python = { "isort", "black" },
-      c = { "astyle" },
+      --lua = { "stylua" },
+      --python = { "isort", "black" },
+      --c = { "astyle" },
+      go = { "gofmt", "goimports" },
     },
     -- format document on save
     format_on_save = { timeout_ms = 500, lsp_fallback = true },
