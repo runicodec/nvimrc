@@ -20,12 +20,14 @@ vim.keymap.set("n", "<leader>pp", function()
 end)
 
 preview.register("python", vim.fn.has("win32") == 1 and "!python %:." or "!python3 %:.")
+preview.register("go", "make")
 
 -- Quick navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-h>", "<C-6>")
 
 -- Move selected line up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
