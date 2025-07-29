@@ -12,19 +12,6 @@ vim.opt.smartindent = true
 
 vim.opt.termguicolors = true 
 
--- neovide-specific settings
-if vim.g.neovide ~= nil then
-  vim.o.guifont = "UbuntuMono Nerd Font:h20"
-
-  -- Toggle fullscreen with F11 in Neovide
-  vim.api.nvim_set_keymap('n', '<F11>', [[<Cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>]], { noremap = true, silent = true })
-
-  -- dynamic resizing
-  vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-  vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
-  vim.keymap.set({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
-end
-
 -- if on Windows and bash is installed, set the default shell from cmd.exe to bash
 if vim.fn.has('win32') == 1 and vim.fn.executable('bash') == 1 then
   vim.opt.shell = 'bash'

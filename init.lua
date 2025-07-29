@@ -7,6 +7,9 @@ require("codec.options")
 -- keybinds
 require("codec.keybinds")
 
+-- graphical client configuration
+require("codec.graphical")
+
 -- load lsp
 require("codec.lsp")
 
