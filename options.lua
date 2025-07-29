@@ -5,15 +5,16 @@ vim.wo.cursorline = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.wrap = false
+vim.opt.wrap = false 
 
 vim.opt.autoindent = true   -- on by default in nvim, good to explicitly enable anyways
 vim.opt.smartindent = true
 
 vim.opt.termguicolors = true 
 
-if vim.g.neovide then
-  vim.o.guifont = "UbuntuMono Nerd Font:h24"
+-- neovide-specific settings
+if vim.g.neovide ~= nil then
+  vim.o.guifont = "UbuntuMono Nerd Font:h20"
 
   -- Toggle fullscreen with F11 in Neovide
   vim.api.nvim_set_keymap('n', '<F11>', [[<Cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>]], { noremap = true, silent = true })
@@ -38,6 +39,23 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.relativenumber = true
     vim.opt_local.number = true
   end
+})
+
+-- always only show the help window
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.txt",
+  callback = function()
+    if vim.bo.buftype == "help" then
+      vim.cmd("only")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "man",
+  callback = function()
+    vim.cmd("only")
+  end,
 })
 
 -- use system clipboard
