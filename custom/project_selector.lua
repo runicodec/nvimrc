@@ -83,6 +83,21 @@ local function list_subdirs_with_prefix(parent)
   return output_table
 end
 
+M.setup = function(opts)
+  if opts ~= nil then
+    -- TODO: iterate over base options list and set each option to the one in opts
+    -- (if one is given) instead of reassigning M._options
+    M._options = opts
+  else
+    M._options = {
+      file_browser = "Ex",
+    }
+  end
+
+  -- include this?
+  return M
+end
+
 -- run ldr, present its output as a telescope picker, then cd into the chosen path
 M.ldr_cd = function(opts)
   opts = opts or {}
@@ -188,8 +203,11 @@ M.ldr_cd = function(opts)
           -- set working directory
           vim.cmd("cd " .. vim.fn.fnameescape(entry.directory))
 
+          -- TRASH
+          local file_browser = vim.fn.exists(":Oil") and "Oil" or "Ex"
+
           -- either open the selected file in enter netrw
-          vim.cmd(entry.file and "edit " .. vim.fn.fnameescape(entry.value) or "Ex")
+          vim.cmd(entry.file and "edit " .. vim.fn.fnameescape(entry.value) or file_browser)
         end)
         return true
       end,
