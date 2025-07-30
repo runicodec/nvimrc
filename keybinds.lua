@@ -2,9 +2,7 @@
 vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 
 -- Alternative to save / write
-vim.keymap.set("i", "<C-;>", "<cmd>w<cr>")
-vim.keymap.set("n", "<C-;>", "<cmd>w<cr>")
-vim.keymap.set("v", "<C-;>", "<cmd>w<cr>")
+vim.keymap.set({"i", "n", "v"}, "<C-;>", "<cmd>w<cr>")
 -- exit terminal mode
 vim.keymap.set("t", "<C-;>", "<C-\\><C-n><cr>")
 
