@@ -4,9 +4,9 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},
-  dependencies = { 
-    { "nvim-tree/nvim-web-devicons" } 
-  }, 
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons" }
+  },
   keys = {
     {
       "<leader>pf",
@@ -15,6 +15,13 @@ return {
       desc = "Open Oil",
     },
   },
+  config = function()
+    require("oil").setup({
+      keymaps = {
+        ["<C-h>"] = false,
+      },
+    })
+  end,
   -- TODO: revisit after project selector has been rewritten
   --config = function()
   --  require("oil").setup()
