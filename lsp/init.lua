@@ -5,7 +5,7 @@ require("codec.lsp.config")
 
 -- lsps
 require("codec.lsp.providers.gopls")
-require("codec.lsp.providers.lua-language-server")
+require("lsp.providers.lua_ls")
 
 vim.lsp.enable({
   "gopls",
