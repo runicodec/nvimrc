@@ -5,12 +5,15 @@ vim.wo.cursorline = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.wrap = false 
+vim.opt.wrap = false
 
-vim.opt.autoindent = true   -- on by default in nvim, good to explicitly enable anyways
+vim.opt.autoindent = true -- on by default in nvim, good to explicitly enable anyways
 vim.opt.smartindent = true
 
-vim.opt.termguicolors = true 
+vim.opt.termguicolors = true
+
+-- allow project-level configurations
+vim.opt.exrc = true
 
 -- if on Windows and bash is installed, set the default shell from cmd.exe to bash
 if vim.fn.has('win32') == 1 and vim.fn.executable('bash') == 1 then
