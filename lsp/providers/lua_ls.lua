@@ -1,15 +1,7 @@
-local M = {}
-
-vim.lsp.config.lua_language_server = {
-  cmd = {
-    "lua-language-server",
-  },
-  root_markers = { 
-    "init.lua",
-  },
-  filetypes = {
-    "lua",
-  },
+---@type LSPProvider
+return {
+  name = "lua_language_server",
+  cmd = { "lua-language-server" },
+  filetypes = { "lua" },
+  root_markers = { "init.lua" },
 }
-
-return M

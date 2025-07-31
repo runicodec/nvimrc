@@ -1,16 +1,7 @@
-local M = {}
-
-vim.lsp.config.gopls = {
-  cmd = {
-    "gopls",
-    "serve",
-  },
-  root_markers = { 
-    "go.mod",
-  },
-  filetypes = {
-    "go",
-  },
+---@type LSPProvider
+return {
+  name = "gopls",
+  cmd = { "gopls", "serve" },
+  filetypes = { "go" },
+  root_markers = { "go.mod" },
 }
-
-return M
